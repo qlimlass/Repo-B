@@ -1,6 +1,7 @@
 name: TheTests
 
-on: pull_request
+on:
+  repository_dispatch:
 
 jobs:
   build:
