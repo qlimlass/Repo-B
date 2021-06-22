@@ -1,0 +1,14 @@
+name: TheDevTests
+
+on:
+  repository_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        if: github.event.action = 'dev_tests'
+        run: echo Hello, dev tests!
