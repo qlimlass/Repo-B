@@ -14,6 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'
+      
       - name: Run tests in QA
         if: github.event.action == 'qa_tests' || github.event.inputs.environment == 'qa'
         run: echo Hello, qa tests!
