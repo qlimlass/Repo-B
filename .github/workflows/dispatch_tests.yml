@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment (qa/kkq/dev)'     
+        description: 'Environment (qa/kkq/dev/ddd)'     
         required: true
 
 jobs:
@@ -34,6 +34,10 @@ jobs:
         run: echo Hello, qa tests!
         
       - name: Run tests in DEV
-        if: github.event.action == 'dev_tests' || github.event.inputs.environment == 'dev'
+        if: >
+          github.event.action == 'dev_tests' || 
+          github.event.action == 'ddd_tests' || 
+          github.event.inputs.environment == 'dev' || 
+          github.event.inputs.environment == 'ddd'
         run: echo Hello, dev tests!
 
