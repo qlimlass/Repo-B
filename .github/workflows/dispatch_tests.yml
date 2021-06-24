@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment (qa/qa2/dev)'     
+        description: 'Environment (qa/kkq/dev)'     
         required: true
 
 jobs:
@@ -20,17 +20,17 @@ jobs:
           ignore_sha: true
           access_token: ${{ github.token }}
       
-      - name: Sleep for 60 seconds
+      - name: Sleep for 5 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '60s'
+          time: '5s'
       
       - name: Run tests in QA
         if: >
           github.event.action == 'qa_tests' || 
-          github.event.action == 'qa2_tests' || 
+          github.event.action == 'kkq_tests' || 
           github.event.inputs.environment == 'qa' || 
-          github.event.inputs.environment == 'qa2'
+          github.event.inputs.environment == 'kkq'
         run: echo Hello, qa tests!
         
       - name: Run tests in DEV
