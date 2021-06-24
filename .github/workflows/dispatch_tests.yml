@@ -26,7 +26,11 @@ jobs:
           time: '60s'
       
       - name: Run tests in QA
-        if: github.event.action == 'qa_tests' || github.event.inputs.environment == 'qa'
+        if: >
+          github.event.action == 'qa_tests' || 
+          github.event.action == 'qa2_tests' || 
+          github.event.inputs.environment == 'qa' || 
+          github.event.inputs.environment == 'qa2'
         run: echo Hello, qa tests!
         
       - name: Run tests in DEV
