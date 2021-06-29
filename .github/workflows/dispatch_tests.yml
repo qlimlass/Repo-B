@@ -19,6 +19,9 @@ jobs:
         with:
           ignore_sha: true
           access_token: ${{ github.token }}
+
+      - name: Install Cypress
+        run: npm install
       
       - name: Run tests in QA
         if: >
