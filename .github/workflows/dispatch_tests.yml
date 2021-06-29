@@ -20,18 +20,15 @@ jobs:
           ignore_sha: true
           access_token: ${{ github.token }}
       
-      - name: Sleep for 5 seconds
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '5s'
-      
       - name: Run tests in QA
         if: >
           github.event.action == 'qa_tests' || 
           github.event.action == 'kkq_tests' || 
           github.event.inputs.environment == 'qa' || 
           github.event.inputs.environment == 'kkq'
-        run: echo Hello, qa tests!
+        run: |   
+            npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=qa
+        continue-on-error: true
         
       - name: Run tests in DEV
         if: >
@@ -39,5 +36,7 @@ jobs:
           github.event.action == 'ddd_tests' || 
           github.event.inputs.environment == 'dev' || 
           github.event.inputs.environment == 'ddd'
-        run: echo Hello, dev tests!
+        run: |   
+            npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
+        continue-on-error: true
 
