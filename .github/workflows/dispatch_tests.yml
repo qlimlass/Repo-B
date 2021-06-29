@@ -77,4 +77,4 @@ jobs:
           context: 'Test report'
           state: 'success'
           sha: ${{ github.event.workflow_dispatch.head.sha || github.sha}}
-          target_url: qlimlass.github.io/Repo-B/${{ github.run_number }}
+          target_url: https://qlimlass.github.io/Repo-B/${{ github.run_number }}
