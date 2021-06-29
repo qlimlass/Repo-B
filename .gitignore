@@ -2,3 +2,13 @@
 .DS_Store
 
 .code-workspace
+
+node_modules/
+fixtures/
+screenshots/
+videos/
+allure-report/
+allure-results/
+
+
+package-lock.json

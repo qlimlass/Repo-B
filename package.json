@@ -1,0 +1,25 @@
+{
+  "name": "repo-b",
+  "version": "1.0.0",
+  "description": "Test Repo-B",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.5.1",
+    "allure-commandline": "^2.13.8",
+    "cypress": "^7.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qlimlass/Repo-B.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qlimlass/Repo-B/issues"
+  },
+  "homepage": "https://github.com/qlimlass/Repo-B#readme"
+}
