@@ -58,7 +58,7 @@ jobs:
           github.event.action == 'kkq_tests' || 
           github.event.inputs.environment == 'qa' || 
           github.event.inputs.environment == 'kkq'
-        id: allure-report
+        id: allure-report-qa
         with:
           allure_results: allure-results
           gh_pages: gh-pages
@@ -98,7 +98,7 @@ jobs:
           github.event.action == 'ddd_tests' || 
           github.event.inputs.environment == 'dev' || 
           github.event.inputs.environment == 'ddd'
-        id: allure-report
+        id: allure-report-dev
         with:
           allure_results: allure-results
           gh_pages: gh-pages
