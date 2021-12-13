@@ -43,29 +43,13 @@ jobs:
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
         continue-on-error: true
 
-      - name: Get Allure history in QA
+      - name: Get Allure history
         uses: actions/checkout@v2
-        if: >
-          github.event.action == 'qa_tests' || 
-          github.event.action == 'kkq_tests' || 
-          github.event.inputs.environment == 'qa' || 
-          github.event.inputs.environment == 'kkq'
+        if: always()
         continue-on-error: true
         with:
-          ref: gh-pages-qa
-          path: gh-pages-qa
-
-      - name: Get Allure history in DEV
-        uses: actions/checkout@v2
-        if: >
-          github.event.action == 'dev_tests' || 
-          github.event.action == 'ddd_tests' || 
-          github.event.inputs.environment == 'dev' || 
-          github.event.inputs.environment == 'ddd'
-        continue-on-error: true
-        with:
-          ref: gh-pages-dev
-          path: gh-pages-dev
+          ref: gh-pages
+          path: gh-pages
                 
       - name: Allure report history QA
         uses: simple-elf/allure-report-action@master
@@ -76,8 +60,8 @@ jobs:
           github.event.inputs.environment == 'kkq'
         id: allure-report-qa
         with:
-          allure_results: qa/allure-results
-          gh_pages: gh-pages-qa
+          allure_results: Repo-B/qa/allure-results
+          gh_pages: gh-pages
           allure_report: Repo-B/qa/allure-report
           allure_history: Repo-B/qa/allure-history
                     
@@ -90,7 +74,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages-qa
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: Repo-B/qa/allure-history
 
       - name: Post the link to the report QA
@@ -116,8 +100,8 @@ jobs:
           github.event.inputs.environment == 'ddd'
         id: allure-report-dev
         with:
-          allure_results: dev/allure-results
-          gh_pages: gh-pages-dev
+          allure_results: Repo-B/dev/allure-results
+          gh_pages: gh-pages
           allure_report: Repo-B/dev/allure-report
           allure_history: Repo-B/dev/allure-history
                     
@@ -130,7 +114,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages-dev
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: Repo-B/dev/allure-history
 
       - name: Post the link to the report DEV
