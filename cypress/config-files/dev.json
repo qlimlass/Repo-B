@@ -1,3 +1,5 @@
 {
-    
+    "env": {
+        "allureResultsPath": "dev/results"
+    }
 }
