@@ -7,6 +7,8 @@ node_modules/
 fixtures/
 screenshots/
 videos/
+qa/
+dev/
 allure-report/
 allure-results/
 
