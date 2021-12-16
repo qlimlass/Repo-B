@@ -53,6 +53,9 @@ jobs:
                 
       - name: Allure report history QA
         uses: simple-elf/allure-report-action@master
+        run: |
+            pwd
+            ls
         if: >
           github.event.action == 'qa_tests' || 
           github.event.action == 'kkq_tests' || 
@@ -67,6 +70,9 @@ jobs:
           subfolder: qa
                     
       - name: Deploy report to Github Pages QA
+        run: |
+            pwd
+            ls
         if: >
           github.event.action == 'qa_tests' || 
           github.event.action == 'kkq_tests' || 
