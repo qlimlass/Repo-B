@@ -60,10 +60,11 @@ jobs:
           github.event.inputs.environment == 'kkq'
         id: allure-report-qa
         with:
-          allure_results: Repo-B/qa/allure-results
+          allure_results: output/allure-results
           gh_pages: gh-pages
-          allure_report: Repo-B/qa/allure-report
-          allure_history: Repo-B/qa/allure-history
+          allure_report: qa
+          allure_history: output/allure-results/history
+          subfolder: qa
                     
       - name: Deploy report to Github Pages QA
         if: >
@@ -75,7 +76,8 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: Repo-B/qa/allure-history
+          PUBLISH_DIR: qa
+          DESTINATION_DIR: qa
 
       - name: Post the link to the report QA
         if: >
@@ -100,10 +102,11 @@ jobs:
           github.event.inputs.environment == 'ddd'
         id: allure-report-dev
         with:
-          allure_results: Repo-B/dev/allure-results
+          allure_results: output/allure-results
           gh_pages: gh-pages
-          allure_report: Repo-B/dev/allure-report
-          allure_history: Repo-B/dev/allure-history
+          allure_report: dev
+          allure_history: output/allure-results/history
+          subfolder: dev
                     
       - name: Deploy report to Github Pages DEV
         if: >
@@ -115,7 +118,8 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: Repo-B/dev/allure-history
+          PUBLISH_DIR: dev
+          DESTINATION_DIR: dev
 
       - name: Post the link to the report DEV
         if: >
