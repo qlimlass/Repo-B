@@ -60,7 +60,7 @@ jobs:
           github.event.inputs.environment == 'kkq'
         id: allure-report-qa
         with:
-          allure_results: output/allure-results
+          allure_results: qa/allure-results
           gh_pages: gh-pages
           allure_report: qa
           allure_history: output/allure-results/history
@@ -102,7 +102,7 @@ jobs:
           github.event.inputs.environment == 'ddd'
         id: allure-report-dev
         with:
-          allure_results: output/allure-results
+          allure_results: dev/allure-results
           gh_pages: gh-pages
           allure_report: dev
           allure_history: output/allure-results/history
