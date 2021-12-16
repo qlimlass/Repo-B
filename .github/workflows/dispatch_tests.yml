@@ -76,7 +76,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: qa
+          PUBLISH_DIR: output/allure-results/history
           DESTINATION_DIR: qa
 
       - name: Post the link to the report QA
@@ -118,7 +118,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: dev
+          PUBLISH_DIR: output/allure-results/history
           DESTINATION_DIR: dev
 
       - name: Post the link to the report DEV
