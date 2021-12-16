@@ -31,6 +31,8 @@ jobs:
           github.event.inputs.environment == 'kkq'
         run: |   
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=qa
+            pwd
+            ls
         continue-on-error: true
         
       - name: Run tests in DEV
@@ -41,6 +43,8 @@ jobs:
           github.event.inputs.environment == 'ddd'
         run: |   
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
+            pwd
+            ls
         continue-on-error: true
 
       - name: Get Allure history
@@ -53,9 +57,6 @@ jobs:
                 
       - name: Allure report history QA
         uses: simple-elf/allure-report-action@master
-        run: |
-            pwd
-            ls
         if: >
           github.event.action == 'qa_tests' || 
           github.event.action == 'kkq_tests' || 
@@ -70,9 +71,6 @@ jobs:
           subfolder: qa
                     
       - name: Deploy report to Github Pages QA
-        run: |
-            pwd
-            ls
         if: >
           github.event.action == 'qa_tests' || 
           github.event.action == 'kkq_tests' || 
