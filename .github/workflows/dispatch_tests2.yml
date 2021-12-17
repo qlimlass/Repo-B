@@ -72,7 +72,7 @@ jobs:
           allure_results: qa/allure-results
           gh_pages: gh-pages
           allure_report: qa
-          allure_history: output/allure-results/history
+          allure_history: qa/allure-results/history
           subfolder: qa
         continue-on-error: true
 
@@ -95,7 +95,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: output/allure-results/history
+          PUBLISH_DIR: qa/allure-results/history
           DESTINATION_DIR: qa
 
       - name: Post the link to the report QA
@@ -124,7 +124,7 @@ jobs:
           allure_results: dev/allure-results
           gh_pages: gh-pages
           allure_report: dev
-          allure_history: output/allure-results/history
+          allure_history: dev/allure-results/history
           subfolder: dev
                     
       - name: Deploy report to Github Pages DEV
@@ -137,7 +137,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: output/allure-results/history
+          PUBLISH_DIR: dev/allure-results/history
           DESTINATION_DIR: dev
 
       - name: Post the link to the report DEV
