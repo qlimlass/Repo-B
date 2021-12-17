@@ -31,8 +31,6 @@ jobs:
           github.event.inputs.environment == 'kkq'
         run: |   
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=qa
-            pwd
-            ls
         continue-on-error: true
         
       - name: Run tests in DEV
@@ -43,8 +41,6 @@ jobs:
           github.event.inputs.environment == 'ddd'
         run: |   
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
-            pwd
-            ls
         continue-on-error: true
 
       - name: Get Allure history
@@ -54,6 +50,15 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
+      
+      - name: DEBUG step
+        run: |
+            pwd
+            ls
+            cd qa
+            pwd
+            ls
+        continue-on-error: true
                 
       - name: Allure report history QA
         uses: simple-elf/allure-report-action@master
@@ -64,11 +69,21 @@ jobs:
           github.event.inputs.environment == 'kkq'
         id: allure-report-qa
         with:
-          allure_results: qa/allure-results
+          allure_results: output/allure-results
           gh_pages: gh-pages
           allure_report: qa
-          allure_history: qa/allure-results/history
+          allure_history: output/allure-results/history
           subfolder: qa
+        continue-on-error: true
+
+      - name: DEBUG step
+        run: |
+            pwd
+            ls
+            cd qa
+            pwd
+            ls
+        continue-on-error: true
                     
       - name: Deploy report to Github Pages QA
         if: >
@@ -80,7 +95,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: qa/allure-results/history
+          PUBLISH_DIR: output/allure-results/history
           DESTINATION_DIR: qa
 
       - name: Post the link to the report QA
@@ -106,10 +121,10 @@ jobs:
           github.event.inputs.environment == 'ddd'
         id: allure-report-dev
         with:
-          allure_results: dev/allure-results
+          allure_results: output/allure-results
           gh_pages: gh-pages
           allure_report: dev
-          allure_history: dev/allure-results/history
+          allure_history: output/allure-results/history
           subfolder: dev
                     
       - name: Deploy report to Github Pages DEV
@@ -122,7 +137,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: dev/allure-results/history
+          PUBLISH_DIR: output/allure-results/history
           DESTINATION_DIR: dev
 
       - name: Post the link to the report DEV
