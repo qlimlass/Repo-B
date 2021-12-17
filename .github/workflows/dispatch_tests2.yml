@@ -53,10 +53,19 @@ jobs:
       
       - name: DEBUG step
         run: |
+            echo ":::::::::::pwd"
             pwd
+            echo ":::::::::::ls"
             ls
+            echo ":::::::::::cd qa -> pwd"
             cd qa
             pwd
+            echo ":::::::::::ls in qa"
+            ls
+            echo ":::::::::::cd allure-results -> pwd"
+            cd allure-results
+            pwd
+            echo ":::::::::::ls in allure-results"
             ls
         continue-on-error: true
                 
@@ -92,10 +101,10 @@ jobs:
             pwd
             echo ":::::::::::ls in allure-results"
             ls
-            echo ":::::::::::cd history -> pwd"
-            cd history
+            echo ":::::::::::cd data -> pwd"
+            cd data
             pwd
-            echo ":::::::::::ls in history"
+            echo ":::::::::::ls in data"
             ls
         continue-on-error: true
                     
