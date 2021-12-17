@@ -1,0 +1,155 @@
+name: TheDispatchTests2
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment (qa/kkq/dev/ddd)'     
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          ignore_sha: true
+          access_token: ${{ github.token }}
+
+      - name: Install Cypress
+        run: npm install
+      
+      - name: Run tests in QA
+        if: >
+          github.event.action == 'qa_tests' || 
+          github.event.action == 'kkq_tests' || 
+          github.event.inputs.environment == 'qa' || 
+          github.event.inputs.environment == 'kkq'
+        run: |   
+            npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=qa
+        continue-on-error: true
+        
+      - name: Run tests in DEV
+        if: >
+          github.event.action == 'dev_tests' || 
+          github.event.action == 'ddd_tests' || 
+          github.event.inputs.environment == 'dev' || 
+          github.event.inputs.environment == 'ddd'
+        run: |   
+            npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
+        continue-on-error: true
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      
+      - name: DEBUG step
+        run: |
+            pwd
+            ls
+            cd qa
+            pwd
+            ls
+        continue-on-error: true
+                
+      - name: Allure report history QA
+        uses: simple-elf/allure-report-action@master
+        if: >
+          github.event.action == 'qa_tests' || 
+          github.event.action == 'kkq_tests' || 
+          github.event.inputs.environment == 'qa' || 
+          github.event.inputs.environment == 'kkq'
+        id: allure-report-qa
+        with:
+          allure_results: qa/allure-results
+          gh_pages: gh-pages
+          allure_report: qa
+          allure_history: output/allure-results/history
+          subfolder: qa
+        continue-on-error: true
+
+      - name: DEBUG step
+        run: |
+            pwd
+            ls
+            cd qa
+            pwd
+            ls
+        continue-on-error: true
+                    
+      - name: Deploy report to Github Pages QA
+        if: >
+          github.event.action == 'qa_tests' || 
+          github.event.action == 'kkq_tests' || 
+          github.event.inputs.environment == 'qa' || 
+          github.event.inputs.environment == 'kkq'
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: output/allure-results/history
+          DESTINATION_DIR: qa
+
+      - name: Post the link to the report QA
+        if: >
+          github.event.action == 'qa_tests' || 
+          github.event.action == 'kkq_tests' || 
+          github.event.inputs.environment == 'qa' || 
+          github.event.inputs.environment == 'kkq'
+        uses: Sibz/github-status-action@v1
+        with: 
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          state: 'success'
+          sha: ${{ github.event.workflow_dispatch.head.sha || github.sha}}
+          target_url: https://qlimlass.github.io/Repo-B/qa/${{ github.run_number }}
+
+      - name: Allure report history DEV
+        uses: simple-elf/allure-report-action@master
+        if: >
+          github.event.action == 'dev_tests' || 
+          github.event.action == 'ddd_tests' || 
+          github.event.inputs.environment == 'dev' || 
+          github.event.inputs.environment == 'ddd'
+        id: allure-report-dev
+        with:
+          allure_results: dev/allure-results
+          gh_pages: gh-pages
+          allure_report: dev
+          allure_history: output/allure-results/history
+          subfolder: dev
+                    
+      - name: Deploy report to Github Pages DEV
+        if: >
+          github.event.action == 'dev_tests' || 
+          github.event.action == 'ddd_tests' || 
+          github.event.inputs.environment == 'dev' || 
+          github.event.inputs.environment == 'ddd'
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: output/allure-results/history
+          DESTINATION_DIR: dev
+
+      - name: Post the link to the report DEV
+        if: >
+          github.event.action == 'dev_tests' || 
+          github.event.action == 'ddd_tests' || 
+          github.event.inputs.environment == 'dev' || 
+          github.event.inputs.environment == 'ddd'
+        uses: Sibz/github-status-action@v1
+        with: 
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          state: 'success'
+          sha: ${{ github.event.workflow_dispatch.head.sha || github.sha}}
+          target_url: https://qlimlass.github.io/Repo-B/dev/${{ github.run_number }}
