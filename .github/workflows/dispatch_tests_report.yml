@@ -129,8 +129,9 @@ jobs:
         with:
           allure_results: dev/allure-results
           gh_pages: gh-pages
-          allure_report: Repo-B/dev/allure-report
-          allure_history: Repo-B/dev/allure-history
+          allure_report: output/allure-report
+          allure_history: output/allure-history
+          subfolder: dev
                     
       - name: Deploy report to Github Pages DEV
         if: >
@@ -142,7 +143,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: Repo-B/dev/allure-history
+          PUBLISH_DIR: output/allure-history
 
       - name: Post the link to the report DEV
         if: >
