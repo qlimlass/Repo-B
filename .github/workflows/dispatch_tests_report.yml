@@ -1,4 +1,4 @@
-name: TheDispatchTests
+name: TheDispatchTests-Report
 
 on:
   repository_dispatch:
