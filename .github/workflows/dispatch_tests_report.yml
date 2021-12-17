@@ -43,7 +43,7 @@ jobs:
             npx cypress run --spec cypress/integration/1-getting-started/*.js --browser chrome --headless --env allure=true,configFile=dev
         continue-on-error: true
 
-        - name: DEBUG step
+      - name: DEBUG step
         run: |
             echo ":::::::::::pwd"
             pwd
