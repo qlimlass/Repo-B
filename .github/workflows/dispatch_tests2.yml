@@ -78,10 +78,24 @@ jobs:
 
       - name: DEBUG step
         run: |
+            echo "pwd"
             pwd
+            echo "ls"
             ls
+            echo "cd qa -> pwd"
             cd qa
             pwd
+            echo "ls in qa"
+            ls
+            echo "cd allure-results -> pwd"
+            cd allure-results
+            pwd
+            echo "ls in allure-results"
+            ls
+            echo "cd history -> pwd"
+            cd history
+            pwd
+            echo "ls in history"
             ls
         continue-on-error: true
                     
