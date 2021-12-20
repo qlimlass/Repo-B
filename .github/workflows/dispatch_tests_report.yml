@@ -104,7 +104,7 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: output/allure-history
         with:
-          KEEP_FILES: true
+          keepFiles: true
 
       - name: Post the link to the report QA
         if: >
