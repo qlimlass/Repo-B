@@ -1,0 +1,122 @@
+{
+  "d1d258d923e649c7e691d13953b42cb2" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8d8d2e29763f9e2a",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/8d8d2e29763f9e2a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013497992,
+        "stop" : 1640013498838,
+        "duration" : 846
+      }
+    } ]
+  },
+  "11e27f90a890d381c425d8178efb0505" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "27847b2000a9543b",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/27847b2000a9543b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013498852,
+        "stop" : 1640013499404,
+        "duration" : 552
+      }
+    } ]
+  },
+  "de58fefe84dc12072bf5ccc96ced797b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5be540aad0993399",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/5be540aad0993399",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013499623,
+        "stop" : 1640013499926,
+        "duration" : 303
+      }
+    } ]
+  },
+  "656caefe09fee4cc76b1222c10a5099c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "efd2c971655fbf46",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/efd2c971655fbf46",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013500256,
+        "stop" : 1640013500551,
+        "duration" : 295
+      }
+    } ]
+  },
+  "bc5160b01cfe2ea594415cb79a29e0dc" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bc11da8c13dc708d",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/bc11da8c13dc708d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013499931,
+        "stop" : 1640013500247,
+        "duration" : 316
+      }
+    } ]
+  },
+  "37188c05885f12164a3cd55379335d62" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c9ff5e17b12206c4",
+      "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/c9ff5e17b12206c4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1640013499409,
+        "stop" : 1640013499619,
+        "duration" : 210
+      }
+    } ]
+  }
+}
