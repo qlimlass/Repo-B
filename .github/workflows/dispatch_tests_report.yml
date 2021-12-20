@@ -112,13 +112,7 @@ jobs:
           github.event.action == 'kkq_tests' || 
           github.event.inputs.environment == 'qa' || 
           github.event.inputs.environment == 'kkq'
-        uses: Sibz/github-status-action@v1
-        with: 
-          authToken: ${{secrets.GITHUB_TOKEN}}
-          context: 'Test report'
-          state: 'success'
-          sha: ${{ github.event.workflow_dispatch.head.sha || github.sha}}
-          target_url: https://qlimlass.github.io/Repo-B/qa/${{ github.run_number }}
+        run: echo 'https://qlimlass.github.io/Repo-B/qa/${{ github.run_number }}'
 
       - name: Test marketplace action DEV
         uses: simple-elf/allure-report-action@master
