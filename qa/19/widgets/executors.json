@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://qlimlass.github.io/Repo-B/qa",
+  "buildOrder" : 19,
+  "buildName" : "GitHub Actions Run #1604394633",
+  "buildUrl" : "https://github.com/qlimlass/Repo-B/actions/runs/1604394633",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/19/"
+} ]
