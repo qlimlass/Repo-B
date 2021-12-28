@@ -1,0 +1,224 @@
+{
+  "uid" : "d495a4a67d6ee8cf",
+  "name" : "can add new todo items",
+  "fullName" : "can add new todo items",
+  "historyId" : "11e27f90a890d381c425d8178efb0505",
+  "time" : {
+    "start" : 1640704787361,
+    "stop" : 1640704787886,
+    "duration" : 525
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "\"before each\" hook",
+      "time" : {
+        "start" : 1640704787366,
+        "stop" : 1640704787555,
+        "duration" : 189
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "visit https://example.cypress.io/todo",
+        "time" : {
+          "start" : 1640704787385,
+          "stop" : 1640704787555,
+          "duration" : 170
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "get [data-test=new-todo]",
+      "time" : {
+        "start" : 1640704787560,
+        "stop" : 1640704787563,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "type Feed the cat{enter}",
+      "time" : {
+        "start" : 1640704787563,
+        "stop" : 1640704787875,
+        "duration" : 312
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "get .todo-list li",
+      "time" : {
+        "start" : 1640704787875,
+        "stop" : 1640704787882,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "assert expected **[ <li>, 2 more... ]** to have a length of **3**",
+      "time" : {
+        "start" : 1640704787882,
+        "stop" : 1640704787882,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "actual",
+        "value" : "3"
+      }, {
+        "name" : "expected",
+        "value" : "3"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "last",
+      "time" : {
+        "start" : 1640704787882,
+        "stop" : 1640704787886,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "assert expected **<li>** to have text **Feed the cat**",
+      "time" : {
+        "start" : 1640704787886,
+        "stop" : 1640704787886,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "actual",
+        "value" : "Feed the cat"
+      }, {
+        "name" : "expected",
+        "value" : "Feed the cat"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 8,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "example to-do app"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "875e03787d0ab980",
+        "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/22//#testresult/875e03787d0ab980",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640044528643,
+          "stop" : 1640044529126,
+          "duration" : 483
+        }
+      }, {
+        "uid" : "1a4787e9527f943c",
+        "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/19//#testresult/1a4787e9527f943c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640042444418,
+          "stop" : 1640042445104,
+          "duration" : 686
+        }
+      }, {
+        "uid" : "593aea2831a6fafc",
+        "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/18//#testresult/593aea2831a6fafc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640026464326,
+          "stop" : 1640026464817,
+          "duration" : 491
+        }
+      }, {
+        "uid" : "27847b2000a9543b",
+        "reportUrl" : "https://qlimlass.github.io/Repo-B/qa/11//#testresult/27847b2000a9543b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1640013498852,
+          "stop" : 1640013499404,
+          "duration" : 552
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d495a4a67d6ee8cf.json",
+  "parameterValues" : [ ]
+}
